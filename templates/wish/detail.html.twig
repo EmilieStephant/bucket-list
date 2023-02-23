@@ -1,10 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-{{ parent() }} | Wish
+    {{ parent() }} | Wish
 {% endblock %}
 
 {% block body %}
-<p>Détail du souhait sélectionné :</p>
+    <p>Détails du souhait sélectionné :</p>
+    <section class="details">
+        <div>
+            Titre : {{ wish.title }}
+        </div>
+        <div>
+            Description : {{ wish.description }}
+        </div>
+        <div>
+            Auteur : {{ wish.author }}
+        </div>
+        <div>
+            Crée le {{ wish.dateCreated | date('d/m/y H:i') }}
+        </div>
+    </section>
 {% endblock %}
 
+{% block style %}
+    <style>
+        .details > div {
+            background-color: burlywood;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+{% endblock %}

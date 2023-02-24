@@ -84,3 +84,25 @@ body > .container {
 main {
     flex: 1;
 }
+.new_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: slategrey;
+}
+
+.form_item{
+    margin: 20px;
+}
+
+.form_button{
+    display: flex;
+    justify-content: center;
+}
+
+.form_label{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

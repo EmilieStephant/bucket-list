@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ parent() }} | New
+{% endblock %}
+
+{% block body %}
+    <h2>Add a wish !</h2>
+    <section class="new_form">
+        {{ form_start(wishForm) }}
+
+        <div class="form_item">
+            <label class="form_label">{{ form_label(wishForm.title) }}</label>
+            {{ form_widget(wishForm.title) }}
+            {{ form_errors(wishForm.title) }}
+        </div>
+        <div class="form_item">
+            <label class="form_label">{{ form_label(wishForm.description) }}</label>
+            {{ form_widget(wishForm.description) }}
+            {{ form_errors(wishForm.description) }}
+        </div>
+        <div class="form_item">
+            <label class="form_label">{{ form_label(wishForm.author) }}</label>
+            {{ form_widget(wishForm.author) }}
+            {{ form_errors(wishForm.author) }}
+        </div>
+        <div class="form_button">
+            <button>Ajouter</button>
+        </div>
+        {{ form_end(wishForm) }}
+    </section>
+{% endblock %}
+

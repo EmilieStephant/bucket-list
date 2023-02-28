@@ -33,6 +33,12 @@ class Wish
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreated = null;
 
+    #[ORM\ManyToOne(inversedBy: 'wish')]
+    #[Assert\NotBlank(message: "Please choose the correct category for your wish.")]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,4 +103,15 @@ class Wish
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): void
+    {
+        $this->category = $category;
+    }
+
 }

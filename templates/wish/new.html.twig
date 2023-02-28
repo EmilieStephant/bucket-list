@@ -24,6 +24,11 @@
             {{ form_widget(wishForm.author) }}
             {{ form_errors(wishForm.author) }}
         </div>
+        <div class="form_item">
+            <label class="form_label">{{ form_label(wishForm.category) }}</label>
+            {{ form_widget(wishForm.category) }}
+            {{ form_errors(wishForm.category) }}
+        </div>
         <div class="form_button">
             <button>Ajouter</button>
         </div>

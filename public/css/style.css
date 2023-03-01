@@ -16,9 +16,18 @@ header{
     list-style-type:none;
 }
 
+.atitle:hover{
+    color : black;
+}
+
+.nav-item:hover{
+    color : black;
+    font-weight: bold;
+}
+
 .nav-item{
     padding: 30px;
-    font-weight: normal;
+    font-size: 80%;
 }
 
 .a{
@@ -31,15 +40,6 @@ header{
     text-decoration: none;
     color: slategray;
     align-items: center;
-}
-
-.atitle:hover{
-    color : black;
-}
-
-.nav-item:hover{
-    color : black;
-    font-weight: bold;
 }
 
 footer{

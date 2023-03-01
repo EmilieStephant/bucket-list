@@ -34,6 +34,8 @@ class Wish
     private ?\DateTimeInterface $dateCreated = null;
 
     #[ORM\ManyToOne(inversedBy: 'wish')]
+        //Signifie que l'attribut "miroir" dans l'entité Category s'appelle wish.
+        // wish et category sont les deux attributs issus de la relation bidirectionnelle
     #[Assert\NotBlank(message: "Please choose the correct category for your wish.")]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;

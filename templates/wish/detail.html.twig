@@ -6,6 +6,7 @@
 
 {% block body %}
     <p>Details :</p>
+    <a href="{{ path('wish_update', {'id': wish.id}) }}"><button>Update</button></a>
     <section class="details">
         <div>
             Titre : {{ wish.title }}

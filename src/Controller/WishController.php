@@ -19,6 +19,7 @@ class WishController extends AbstractController
     {
         $wishes = $wishRepository->findBy(["isPublished" => true], ["dateCreated" => 'DESC']);
         $categories = $categoryRepository->findAll();
+        //utiliser array_unique ?
 
         return $this->render('wish/list.html.twig', ["wishes" => $wishes, "categories" => $categories]);
     }
@@ -40,6 +41,10 @@ class WishController extends AbstractController
         //et récupérer les infos en retour
 
         $wish = new Wish();
+
+        //Je set l'auteur de Wish pour que le champ
+        if($this->getUser()) $wish->setAuthor($this->getUser()->getUserIdentifier());
+
         $wishForm = $this->createForm(WishType::class, $wish);
 
         $wishForm->handleRequest($request);
@@ -61,4 +66,20 @@ class WishController extends AbstractController
             "wishForm" => $wishForm->createView()
         ]);
     }
+
+    #[Route('/update/{id}', name: 'update', requirements: ['id' => '\d+'])]
+    public function update(Wish $id, WishRepository $wishRepository): Response
+    {
+        $wish = $wishRepository->find($id);
+
+        if (!$wish){
+            throw $this->createNotFoundException("Oops ! Wish not found !");
+        }
+
+        $wishForm = $this->createForm(WishType::class, $wish);
+
+        return $this->render('wish/update.html.twig', ["wish" => $wish, "wishForm" => $wishForm->createView()]);
+    }
+
+
 }
